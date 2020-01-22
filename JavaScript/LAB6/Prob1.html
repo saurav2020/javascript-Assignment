@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Location</title>
+    
+</head>
+
+<body>
+    <form id="frmlab">
+        <table border="3" cellspacing="8" cellpadding="10" bordercolor="blue">
+            <tr>
+                <td colspan="4">Location object properties</td>
+            </tr>
+            <tr>
+                <td colspan="1">href</td>
+                <td colspan="3" id="href"></td>
+            </tr>
+            <tr>
+                <td colspan="1">pathname</td>
+                <td colspan="3" id="pathname"></td>
+            </tr>
+            <tr>
+                <td colspan="1">protocol</td>
+                <td colspan="3" id="protocol"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        document.getElementById("href").innerHTML=location.href;
+        document.getElementById("pathname").innerHTML=location.pathname;
+        document.getElementById("protocol").innerHTML=location.protocol;
+    </script>
+</body>
+
+</html>

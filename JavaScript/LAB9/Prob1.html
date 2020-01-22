@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <p>Regexp: <input type="text" id="regexp"></p>
+        <p>Subject String: <input type="text" name="" id="str"></p>
+        <p><input type="button" value="Test Match" onclick="testMatch()"><input type="button" value="Show Match" onclick="showMatch()"></p>
+        <script>
+            function showMatch() {
+                var str = document.getElementById("str").value;
+                var reg = document.getElementById("regexp").value; 
+                var res = str.match(reg);
+                var index=str.indexOf(res);
+                if(res!=null)
+                alert("Match at position "+index+":"+res);
+            }
+            function testMatch() {
+                var str = document.getElementById("str").value;
+                var reg = document.getElementById("regexp").value; 
+                var res = str.match(reg);
+                if(res!=null)
+                alert("Successful Match");
+            }
+            //"\bt[a-z]+\b"
+            //This is a test of JavaScript RegExp Object
+        </script>
+    </body>
+</html>

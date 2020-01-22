@@ -1,0 +1,76 @@
+<html>
+
+<body>
+    <h1>PRODUCTS</h1>
+    <form id="frmlab">
+        <table border="1" cellspacing="8" cellpadding="10" bordercolor="black">
+            <tr>
+                <th colspan="1">Name</th>
+                <th colspan="1">Description</th>
+                <th colspan="1">Price</th>
+                <th colspan="1">Qty</th>
+            </tr>
+            <tr>
+                <td colspan="1" name="name">Barbie Doll</td>
+                <td colspan="1" name="desc">Beautiful</td>
+                <td colspan="1" name="price">20</td>
+                <td colspan="1"><input type="number" id="qty1"  name="qty"></td>
+            </tr>
+            <tr>
+                <td colspan="1" name="name">Calculator</td>
+                <td colspan="1" name="desc">Calculator with latest features</td>
+                <td colspan="1" name="price">30</td>
+                <td colspan="1"><input type="number" id="qty2"  name="qty"></td>
+            </tr>
+            <tr>
+                <td colspan="1" name="name">Mobile Phones</td>
+                <td colspan="1" name="desc">Camera,JAVA Games,GPRS</td>
+                <td colspan="1" name="price">40</td>
+                <td colspan="1"><input type="number" id="qty3"  name="qty"></td>
+            </tr>
+            <tr>
+                <td colspan="1" name="name">LG DVD</td>
+                <td colspan="1" name="desc">5 disc changer</td>
+                <td colspan="1" name="price">50</td>
+                <td colspan="1"><input type="number" id="qty4"  name="qty"></td>
+            </tr>
+        </table>
+        <input type="button" name="" id="" value="ORDER" onclick="printInvoice()">
+    </form>
+    <script>
+        function printInvoice(){
+            var qty=document.getElementsByName("qty");
+            var name=document.getElementsByName("name");
+            var price=document.getElementsByName("price");
+
+            var qty1=qty[0].value;
+            var qty2=qty[1].value;
+            var qty3=qty[2].value;
+            var qty4=qty[3].value;
+            
+            if(qty1==0 && qty2==0 && qty3==0 && qty4==0){
+                alert("No Item Selected!")
+            }
+            else
+            openIt(qty,name,price);
+        }
+        function openIt(qty,name,price){
+            myWindow=open('','My Win','height = 200,width=200,scrollBars=yes');
+            myWindow.resizeTo(500,500);
+            myWindow.moveTo(500,500);
+            var newContent="<html><body><h1>INVOICE</h1><br><table border='1' cellspacing='8' cellpadding='10' bordercolor='black'>";
+            newContent+="<tr><th colspan='1'>PRODUCT</th><th colspan='1'>QUANTITY</th><th colspan='1'>PRICE</th><th colspan='1'>TOTAL</th></tr>";
+            
+            for(i=0;i<name.length;i++){
+                if(qty[i].value!=0){
+                    newContent+="<tr><td colspan='1'>"+name[i].innerHTML+"</td><td colspan='1'>"+qty[i].value+"</td><td colspan='1'>"+price[i].innerHTML+"</td><td colspan='1'>"+(qty[i].value*price[i].innerHTML)+"</td></tr>";
+                }
+            }
+            
+            newContent+="</table></body></html>";
+            myWindow.document.write(newContent);
+        }
+    </script>
+</body>
+
+</html>

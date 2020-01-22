@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <h1>Enter Loan Information:</h1>
+        <p>1) Amount of loan(any currency) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <input type="number" name="" id="p"> </p>
+        <p>2) Annual percentage rate of interest    <input type="number" name="" id="r"> </p>
+        <p>3) Repayment period in years     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" name="" id="t"> </p>
+        <input type="button" name="" id="" value="Compute" onclick="compute()">
+        <p>4) Your monthly payment will be &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <input type="number" name="" id="emi" disabled> </p>
+        <p>5) Your total payment will be  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="number" name="" id="total" disabled> </p>
+        <p>6) Your total interest payment will be     &nbsp; <input type="number" name="" id="interest" disabled> </p>
+
+
+        <script>
+            
+            function compute(){
+                p=document.getElementById("p").value;
+                r=document.getElementById("r").value;
+                t=document.getElementById("t").value;
+                emi=p*r*t/1200;
+                interest=p*r*t/100;
+                total=parseInt(p)+parseInt(interest);
+                document.getElementById("emi").value=emi;
+                document.getElementById("total").value=total;
+                document.getElementById("interest").value=interest;
+            }
+            
+        </script>
+
+    </body>
+</html>

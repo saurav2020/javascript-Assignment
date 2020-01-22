@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title> window example </title>
+</head>
+<script>
+    function openIt(){
+        myWindow=open('','My Win','height = 100,width=100,scrollBars=yes');
+        var newContent="<html><head><title>Another Window</title></head>";
+        newContent+=" <body><h1>Hey Fom another window.</h1><h3>JavaScript Window Methods</h3></body></html>";
+        myWindow.document.write(newContent);
+        myWindow.resizeTo(document.frmlab.height.value,document.frmlab.width.value);
+        myWindow.moveTo(document.frmlab.left.value,document.frmlab.right.value);
+    }
+</script>
+<body>
+    <form id="frmlab" name="frmlab">
+        <table border="1" cellspacing="8" cellpadding="10" bordercolor="blue">
+        
+            <tr>
+                <td colspan="4">Create a New Window</td>
+            </tr>
+            <tr>
+                <td colspan="4">Window Size</td>
+            </tr>
+            <tr>
+                <td colspan="1">Width:</td>
+                <td colspan="1"><input type="number" name="width" id="width"></td>
+                <td colspan="1">Height:</td>
+                <td colspan="1"><input type="number" name="height" id="height"></td>
+            </tr>
+            <tr>
+                <td colspan="4">POSITION</td>
+            </tr>
+            <tr>
+                <td colspan="1">Left:</td>
+                <td colspan="1"><input type="number" name="left" id="left"></td>
+                <td colspan="1">Right:</td>
+                <td colspan="1"><input type="number" name="right" id="right"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="button" name="" id="" value="New Window" onclick="openIt();"></td>
+                <td colspan="1"><input type="button" name="" id="" value="Reset"></td>
+            </tr>
+         
+        </table>
+    </form>
+</body>
+</html

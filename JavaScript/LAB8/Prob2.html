@@ -1,0 +1,93 @@
+<html>
+    <body style="background-color: blueviolet">
+    <form action="" name="frm">
+        <h1 style="color:white">Product Details</h1>
+        <table style="" cellspacing="8" cellpadding="10" bordercolor="white" border="5">
+            <tr>
+                <td>Category:</td>
+                <td><select name="" id="ddlCategory" onChange="populate()">
+                    <option value="">select..</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Grocery">Grocery</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Product:</td>
+                <td><select name="" id="ddlProduct"><option value="">-----</option></select></td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td><input type="number" name="" id="qty"></td>
+            </tr>
+            <tr>
+                <td>Total Price:</td>
+                <td><input type="text" name="" id="totalPrice" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Submit" name="" id="" onclick="calculate()"></td>
+                <td><input type="button" value="Clear" name="" id="" onclick="frmReset()"></td>
+            </tr>
+        </table>
+    </form>
+        <script>
+            var price;
+            function populate(){
+                var s=document.getElementById("ddlCategory").value;
+                var p=document.getElementById("ddlProduct");
+                p.innerHTML="";
+                var qty=0;
+                if(s=="Electronics"){
+                    var option = document.createElement("option");
+                    option.text="Television";
+                    option.value="Television";
+                    p.add(option);
+                    var option = document.createElement("option");
+                    option.text="Laptop";
+                    option.value="Laptop";
+                    p.add(option);
+                    var option = document.createElement("option");
+                    option.text="Phone";
+                    option.value="Phone";
+                    p.add(option);
+                    
+                }
+                else if(s=="Grocery"){
+                    var option = document.createElement("option");
+                    option.text="Soap";
+                    option.value="Soap";
+                    p.add(option);
+                    var option = document.createElement("option");
+                    option.text="Powder";
+                    option.value="Powder";
+                    p.add(option);
+                }
+            }
+            function setPrice(){
+                //alert("setting rpice");
+                var p=document.getElementById("ddlProduct").value;
+                if(p=="Television")
+                price=20000;
+                else if(p=="Laptop")
+                price=30000;
+                else if(p=="Phone")
+                price=10000;
+                else if(p=="Soap")
+                price=40;
+                else if(p=="Powder")
+                price=90;
+            }
+            function calculate(){
+                var qty=document.getElementById("qty").value;
+                setPrice();
+                //alert(price+""+qty);
+                document.getElementById("totalPrice").value=qty*price;
+                
+            }
+            function frmReset(){
+                document.frm.reset();
+                var p=document.getElementById("ddlProduct");
+                p.innerHTML="<option value=''>-----</option>";
+            }
+        </script>
+    </body>
+</html>
